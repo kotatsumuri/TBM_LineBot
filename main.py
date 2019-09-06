@@ -67,7 +67,7 @@ def handle_message(event):
                 event.reply_token,
                 TextMessage(text = '300')
             )
-        elif event.message.text == '捨てられているものでゴミ箱を検索':
+        elif event.message.text == '捨てられるものでゴミ箱を検索':
             firebase.line_user_data[uid]['state'] = 400
             line_bot_api.reply_message(
                 event.reply_token,

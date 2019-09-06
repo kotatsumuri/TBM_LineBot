@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, FollowEvent
 )
 import os
 
@@ -41,7 +41,7 @@ def callback():
     return 'OK'
 
 @handler.add(FollowEvent)
-def handle_follow(event)
+def handle_follow(event):
     firebase.insert_user_data(event.source.user_id)
 
 @handler.add(MessageEvent, message=TextMessage)

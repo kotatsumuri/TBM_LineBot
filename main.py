@@ -46,12 +46,37 @@ def handle_follow(event):
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    '''
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
-
+    '''
+    uid = event.source.user_id
+    state = firebase.line_user_data[uid]['state']
+    location = firebase.line_user_data[uid]['location']
+    if state == 100:
+        if event.message.text == 'すべてのゴミ箱を表示':
+            firebase.line_user_data[uid]['state'] = 200
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextMessage(text = '200')
+            )
+        elif event.message.text == '一番近いゴミ箱を検索':
+            firebase.line_user_data[uid]['state'] = 300
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextMessage(text = '300')
+            )
+        elif event.message.text == '捨てられているものでゴミ箱を検索':
+            firebase.line_user_data[uid]['state'] = 400
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextMessage(text = '400')
+            )
+        
+        
 
 if __name__ == "__main__":
 
     port = int(os.getenv("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="localhost", port=port)

@@ -35,10 +35,11 @@ class Firebase:
                 'lat': 0,
                 'lng': 0
             },
-            'state': 0
+            'state': 100
         }
 
     def update_db(self):
+        print(self.line_user_data)
         self.line_user_ref.update(self.line_user_data)
     
     def get_trash_box_data(self):
@@ -62,7 +63,8 @@ class Firebase:
 if __name__ == '__main__':
     firebase = Firebase()
     firebase.insert_user_data('11 45 14 19 19')
-
+    uid = '11 45 14 19 19'
+    firebase.line_user_data[uid]['state'] = 10
     while True:
         pass
 

@@ -11,7 +11,10 @@ from linebot.models import (
 )
 import os
 
+import firebase
+
 app = Flask(__name__)
+firebase = firebase.Firebase()
 
 #環境変数取得
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
@@ -37,6 +40,9 @@ def callback():
 
     return 'OK'
 
+@handler.add(FollowEvent)
+def handle_follow(event)
+    firebase.insert_user_data(event.source.user_id)
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -46,6 +52,6 @@ def handle_message(event):
 
 
 if __name__ == "__main__":
-#    app.run()
+
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port)

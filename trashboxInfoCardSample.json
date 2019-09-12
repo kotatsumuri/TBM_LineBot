@@ -1,0 +1,76 @@
+{
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "ここから200m",
+          "size": "xl",
+          "weight": "bold"
+        },
+        {
+          "type": "separator",
+          "margin": "md"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "md",
+          "contents": [
+            {
+              "type": "text",
+              "text": "空き容量",
+              "size": "md"
+            },
+            {
+              "type": "text",
+              "text": "50%",
+              "size": "xl",
+              "weight": "bold"
+            }
+          ]
+        },
+        {
+          "type": "separator",
+          "margin": "md"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "margin": "md",
+          "contents": [
+            {
+              "type": "text",
+              "text": "捨てられるもの",
+              "size": "md"
+            },
+            {
+              "type": "text",
+              "size": "xl",
+              "weight": "bold",
+              "wrap": true,
+              "text": "缶,ペットボトル,燃えるゴミ"
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "button",
+          "style": "primary",
+          "color": "#00bfff",
+          "action": {
+            "type": "uri",
+            "label": "地図を表示",
+            "uri": "https://www.google.com/maps?q=35.191981,135.114514"
+          }
+        }
+      ]
+    }
+  }

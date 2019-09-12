@@ -98,4 +98,4 @@ def trashbox_info_card(distance = 100, space = 50, things = ['缶','燃えるゴ
     )
     if carousel:
         return bubble
-    return FlexSendMessage(alt_text="hello", contents=bubble)
+    return FlexSendMessage(alt_text="ゴミ箱情報", contents=bubble)

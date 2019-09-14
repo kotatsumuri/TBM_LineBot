@@ -100,7 +100,7 @@ def trashbox_info_card(distance = 100, space = 50, things = ['缶','燃えるゴ
         return bubble
     return FlexSendMessage(alt_text="ゴミ箱情報", contents=bubble)
 
-def all_map_button() {
+def all_map_button():
     bubble = BubbleContainer(
         layout = 'vertical',
         contents = [
@@ -120,4 +120,3 @@ def all_map_button() {
         ]
     )
     return FlexSendMessage(alt_text='すべて地図で見る', contents = bubble)
-}

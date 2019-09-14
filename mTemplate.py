@@ -110,7 +110,7 @@ def all_map_button():
                     style = 'primary',
                     color = '#00bfff',
                     action = URIAction(
-                        label = 'すべて地図で見る,
+                        label = 'すべて地図で見る',
                         uri = 'https://procon30-tbm.firebaseapp.com/#/liff'
                     )
                 )

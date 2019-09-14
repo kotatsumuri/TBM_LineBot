@@ -99,3 +99,25 @@ def trashbox_info_card(distance = 100, space = 50, things = ['缶','燃えるゴ
     if carousel:
         return bubble
     return FlexSendMessage(alt_text="ゴミ箱情報", contents=bubble)
+
+def all_map_button() {
+    bubble = BubbleContainer(
+        layout = 'vertical',
+        contents = [
+            footer = BoxComponent(
+                layout = 'vertical',
+                contents = [
+                    ButtonComponent(
+                        style = 'primary',
+                        color = '#00bfff',
+                        action = URIAction(
+                            label = 'すべて地図で見る,
+                            uri = 'https://procon30-tbm.firebaseapp.com/#/liff'
+                        )
+                    )
+                ]
+            )
+        ]
+    )
+    return FlexSendMessage(alt_text='すべて地図で見る', contents = bubble)
+}

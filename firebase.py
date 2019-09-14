@@ -107,7 +107,7 @@ class Firebase:
     def __run_firebase(self):
         last_time = 0
         while True:
-            if time.time() - last_time > 30:
+            if time.time() - last_time > 60:
                 last_time = time.time()
                 self.update_db()
                 self.get_line_user_data()

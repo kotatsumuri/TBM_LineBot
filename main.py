@@ -101,6 +101,7 @@ def handle_message(event):
             contents.append(mTemplate.trashbox_info_card(distance, space, things, position, True))
 
         message.append(FlexSendMessage(alt_text = 'ゴミ箱一覧',contents = CarouselContainer(contents = contents)))
+        message.aapend(mTemplate.all_map_button())
 
     elif state == 200:
         if event.message.type == 'location':

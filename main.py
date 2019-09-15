@@ -166,15 +166,14 @@ def handle_beacon(event):
     message = []
     if event.beacon.type == 'enter':
         key = ''.join([event.beacon.hwid[i: i+2] for i in range(0, len(event.beacon.hwid), 2)])
-        distance = firebase.calc_distance(uid, key)
         trash_box_data = firebase.get_data_list()[key]
         space = trash_box_data['space']
         things = trash_box_data['things']
         position = trash_box_data['position']
         message.append(TextMessage(text = '近くにゴミ箱があります'))
-        message.append(mTemplate.trashbox_info_card(distance, space, things, position))
+        message.append(mTemplate.beacon_info_card(space, things, position))
     
-    if space < 90:
+    if space > 10:
         line_bot_api.reply_message(event.reply_token,message)
 
 if __name__ == "__main__":

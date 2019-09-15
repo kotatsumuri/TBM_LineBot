@@ -100,6 +100,68 @@ def trashbox_info_card(distance = 100, space = 50, things = ['缶','燃えるゴ
         return bubble
     return FlexSendMessage(alt_text="ゴミ箱情報", contents=bubble)
 
+def beacon_info_card(space = 50, things = ['缶','燃えるゴミ'], position = {'lat':35.114514,'lng':135.191981}, carousel = False):
+    bubble = BubbleContainer(
+        body = BoxComponent(
+            layout = 'vertical',
+            contents = [
+                BoxComponent(
+                    layout = 'vertical',
+                    margin = 'md',
+                    contents = [
+                        SpacerComponent(
+                            margin = 'md'
+                        ),
+                        TextComponent(
+                            text = '空き容量',
+                            size = 'md'
+                        ),
+                        TextComponent(
+                            text = str(space) + '%',
+                            size = 'xl',
+                            weight = 'bold'
+                        )
+                    ]
+                ),
+                BoxComponent(
+                    layout = 'vertical',
+                    margin = 'md',
+                    contents = [
+                        SpacerComponent(
+                            margin = 'md'
+                        ),
+                        TextComponent(
+                            text = '捨てられるもの',
+                            size = 'md'
+                        ),
+                        TextComponent(
+                            text = ','.join(things),
+                            size = 'xl',
+                            weight = 'bold',
+                            wrap = True,
+                        )
+                    ]
+                )
+            ]
+        ),
+        footer = BoxComponent(
+            layout = 'vertical',
+            contents = [
+                ButtonComponent(
+                    style = 'primary',
+                    color = '#00bfff',
+                    action = URIAction(
+                        label = '地図で見る',
+                        uri = 'https://www.google.com/maps?q=' + str(position['lat']) + ',' + str(position['lng'])
+                    )
+                )
+            ]
+        )
+    )
+    if carousel:
+        return bubble
+    return FlexSendMessage(alt_text="ゴミ箱情報", contents=bubble)
+
 def all_map_button():
     bubble = BubbleContainer(
         layout = 'vertical',

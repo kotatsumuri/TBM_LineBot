@@ -170,6 +170,7 @@ def handle_beacon(event):
         space = trash_box_data['space']
         things = trash_box_data['things']
         position = trash_box_data['position']
+        print(space,things,position)
         message.append(TextMessage(text = '近くにゴミ箱があります'))
         #message.append(mTemplate.beacon_info_card(space, things, position))
     

@@ -172,7 +172,7 @@ def handle_beacon(event):
         position = trash_box_data['position']
         print(space,things,position)
         message.append(TextMessage(text = '近くにゴミ箱があります'))
-        #message.append(mTemplate.beacon_info_card(space, things, position))
+        message.append(mTemplate.beacon_info_card())
     
     if space > 10:
         line_bot_api.reply_message(event.reply_token,message)

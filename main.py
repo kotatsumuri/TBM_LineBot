@@ -165,7 +165,7 @@ def handle_postback(event):
 def handle_beacon(event):
     message = []
     if event.beacon.type == 'enter':
-        key = ''.join([event.beacon.hwid[i: i+2] for i in range(0, len(event.beacon.hwid), 2)])
+        key = ' '.join([event.beacon.hwid[i: i+2] for i in range(0, len(event.beacon.hwid), 2)])
         trash_box_data = firebase.get_data_list()[key]
         space = trash_box_data['space']
         things = trash_box_data['things']

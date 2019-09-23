@@ -25,8 +25,9 @@ def locationButton():
 def thingsListButton(things):
     actions = []
 
-    for thing in things:
-        actions.append(PostbackAction(label=thing, data='301,'+thing))
+    for thing, num in things.items():
+        if num > 0:
+            actions.append(PostbackAction(label=thing, data='301,'+thing))
 
     return TemplateSendMessage(
         alt_text='Buttons alt text', 

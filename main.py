@@ -149,11 +149,12 @@ def handle_postback(event):
             key, distance = firebase.get_nearest_trash_box(uid, firebase.get_much_thing_keys(thing))
             if key == '0':
                 message.append(TextMessage(text = '当てはまるゴミ箱はありません'))
-            trash_box_data = firebase.get_data_list()[key]
-            space = trash_box_data['space']
-            things = trash_box_data['things']
-            position = trash_box_data['position']
-            message.append(mTemplate.trashbox_info_card(distance, space, things, position))
+            else:
+                trash_box_data = firebase.get_data_list()[key]
+                space = trash_box_data['space']
+                things = trash_box_data['things']
+                position = trash_box_data['position']
+                message.append(mTemplate.trashbox_info_card(distance, space, things, position))
             firebase.set_state(uid, 100)
         else:
             message.append(mTemplate.thingsListButton(firebase.get_things_list()))

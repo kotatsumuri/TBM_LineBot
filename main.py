@@ -177,8 +177,8 @@ def handle_beacon(event):
         message.append(TextMessage(text = '近くにゴミ箱があります'))
         message.append(mTemplate.beacon_info_card(space=space,position=position,things=things))
     
-    if space > 10:
-        line_bot_api.reply_message(event.reply_token,message)
+        if space > 10:
+            line_bot_api.reply_message(event.reply_token,message)
 
 if __name__ == "__main__":
 

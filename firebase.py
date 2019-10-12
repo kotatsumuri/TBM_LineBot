@@ -76,7 +76,7 @@ class Firebase:
         nearest_key = '0'
 
         for key in keys:
-            if self.get_data_list()[key]['space'] >= 10:
+            if self.get_data_list()[key]['space'] <= 10:
                 continue
             
             distance = self.calc_distance(uid, key)

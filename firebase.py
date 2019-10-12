@@ -76,14 +76,14 @@ class Firebase:
         nearest_key = '0'
 
         for key in keys:
-            if self.get_data_list()[key]['space'] >= 90:
+            if self.get_data_list()[key]['space'] >= 10:
                 continue
             
             distance = self.calc_distance(uid, key)
             if nearest_distance >= distance:
                 nearest_distance = distance
                 nearest_key = key
-            
+        
         return nearest_key, nearest_distance
 
     def set_state(self, uid, state):

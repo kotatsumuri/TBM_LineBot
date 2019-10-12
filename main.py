@@ -147,6 +147,8 @@ def handle_postback(event):
         if code == '301':
             
             key, distance = firebase.get_nearest_trash_box(uid, firebase.get_much_thing_keys(thing))
+            if key == '0':
+                message.append(TextMessage(text = '当てはまるゴミ箱はありません'))
             trash_box_data = firebase.get_data_list()[key]
             space = trash_box_data['space']
             things = trash_box_data['things']
